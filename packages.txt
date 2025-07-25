@@ -1,3 +1,7 @@
+tensorflow
+ipywidgets
+tqdm
+kagglehub
 numpy
 pandas
 matplotlib

@@ -10,7 +10,9 @@ ML_DL_Learning/
 │   ├── simple-linear-regession.ipynb    # Linear regression implementation
 │   ├── tensor-demo.ipynb                # Tensor operations with NumPy
 │   ├── working-with-csv.ipynb           # CSV data manipulation
-│   └── Dataset-import-export.ipynb      # Kaggle dataset operations
+│   ├── Dataset-import-export.ipynb      # Kaggle dataset operations
+│   ├── mnist_classification.ipynb       # Deep learning MNIST digit classification
+│   └── admission_perdication.ipynb      # Neural network admission prediction
 ├── 📂 data/
 │   └── placement.csv                    # Student placement dataset
 ├── 🔧 Configuration/
@@ -33,6 +35,44 @@ A complete implementation of linear regression to predict student placement pack
 - 🎨 Beautiful scatter plots with regression line visualization
 
 **Model Performance:** Achieves ~78% accuracy (R² score: 0.78) in predicting placement packages.
+
+### 🧠 MNIST Digit Classification
+
+**File:** [`mnist_classification.ipynb`](mnist_classification.ipynb)
+
+Deep learning implementation for handwritten digit recognition using TensorFlow/Keras:
+
+- 🖼️ MNIST dataset loading and preprocessing (28x28 grayscale images)
+- 📊 Data normalization (pixel values scaled to 0-1 range)
+- 🏗️ Multi-layer neural network architecture:
+  - Flatten layer for input (784 features)
+  - Dense layers: 128 → 64 → 32 neurons with ReLU activation
+  - Output layer: 10 neurons with softmax for digit classification
+- 📈 Model training with 20 epochs and validation split
+- 🎯 Performance visualization with accuracy and loss plots
+- 📊 Model evaluation using scikit-learn metrics
+
+**Model Architecture:** Sequential neural network with 4 hidden layers
+**Dataset:** 60,000 training images, 10,000 test images
+
+### 🎓 Graduate Admission Prediction
+
+**File:** [`admission_perdication.ipynb`](admission_perdication.ipynb)
+
+Neural network regression model to predict graduate admission chances:
+
+- 📥 Kaggle dataset integration using kagglehub
+- 🧹 Data preprocessing and feature engineering
+- 📊 Feature scaling using MinMaxScaler
+- 🏗️ Simple neural network architecture:
+  - Input layer: 7 features (GRE, TOEFL, University Rating, etc.)
+  - Hidden layer: 7 neurons with ReLU activation
+  - Output layer: 1 neuron with linear activation for regression
+- 📈 Model training with validation monitoring
+- 📊 R² score evaluation for regression performance
+- 📉 Loss and accuracy visualization
+
+**Features:** GRE Score, TOEFL Score, University Rating, SOP, LOR, CGPA, Research Experience
 
 ### 🧮 Tensor Operations Demo
 
@@ -74,6 +114,9 @@ numpy          # Numerical computing and array operations
 pandas         # Data manipulation and analysis
 matplotlib     # Data visualization and plotting
 scikit-learn   # Machine learning algorithms and tools
+tensorflow     # Deep learning framework
+keras          # High-level neural networks API
+kagglehub      # Kaggle dataset integration
 ```
 
 ## 🚀 Getting Started
@@ -111,12 +154,18 @@ pip install -r packages.txt
 jupyter notebook
 ```
 
-### Running the Linear Regression Demo
+### Running the Deep Learning Demos
 
-1. Open [`simple-linear-regession.ipynb`](simple-linear-regession.ipynb)
-2. Run all cells sequentially
-3. View the scatter plot and regression line
-4. Check the model's R² score (~0.78)
+1. **MNIST Classification:**
+
+   - Open [`mnist_classification.ipynb`](mnist_classification.ipynb)
+   - Run cells sequentially to train the digit classifier
+   - View digit images and model performance plots
+
+2. **Admission Prediction:**
+   - Open [`admission_perdication.ipynb`](admission_perdication.ipynb)
+   - Execute cells to train the regression model
+   - Analyze R² score and prediction accuracy
 
 ## 📊 Dataset Information
 
@@ -136,14 +185,41 @@ jupyter notebook
 - Clean data with no missing values
 - Strong positive correlation between CGPA and placement package
 
+### MNIST Handwritten Digits
+
+**Source:** Built-in TensorFlow/Keras dataset
+
+**Features:**
+
+- **Images**: 28x28 grayscale images of handwritten digits (0-9)
+- **Labels**: Integer labels from 0 to 9
+- **Training Set**: 60,000 images
+- **Test Set**: 10,000 images
+
+### Graduate Admissions Dataset
+
+**Source:** Kaggle dataset via kagglehub
+
+**Features:**
+
+- **GRE Score**: Graduate Record Examination score
+- **TOEFL Score**: Test of English as a Foreign Language score
+- **University Rating**: Rating of university (1-5 scale)
+- **SOP**: Statement of Purpose strength (1-5 scale)
+- **LOR**: Letter of Recommendation strength (1-5 scale)
+- **CGPA**: Cumulative Grade Point Average
+- **Research**: Research experience (0 or 1)
+- **Target**: Chance of Admit (0-1 probability)
+
 ## 🎨 Visualizations
 
 The repository showcases various data visualization techniques:
 
 - 📊 **Scatter plots** for data distribution analysis
 - 📈 **Regression lines** overlaying actual data points
-- 🎯 **Model prediction comparisons** with actual vs predicted values
-- 📉 **Performance metrics visualization** for model evaluation
+- 🖼️ **Image visualization** for MNIST digit samples
+- 📉 **Training history plots** for loss and accuracy monitoring
+- 🎯 **Model performance comparisons** with actual vs predicted values
 
 ## 🔧 Configuration
 
@@ -157,19 +233,21 @@ The repository showcases various data visualization techniques:
 
 - Kaggle API credentials (`kaggle.json`) should be excluded from version control
 - Virtual environment (`.venv/`) is also excluded from git tracking
-- CSV data files may be excluded depending on size and sensitivity
+- Downloaded datasets may be excluded depending on size and sensitivity
 
 ## 📚 Learning Objectives
 
 This repository demonstrates proficiency in:
 
 - ✅ **Linear regression** implementation from scratch
+- ✅ **Deep learning** with TensorFlow and Keras
+- ✅ **Neural network architectures** for classification and regression
 - ✅ **Data preprocessing** and exploratory data analysis
-- ✅ **Model training and evaluation** with scikit-learn
+- ✅ **Model training and evaluation** with various metrics
 - ✅ **Data visualization** with matplotlib
-- ✅ **Working with real-world datasets** and CSV handling
-- ✅ **Kaggle API integration** for dataset management
-- ✅ **Best practices** for ML project structure and documentation
+- ✅ **Working with real-world datasets** and API integration
+- ✅ **Kaggle integration** with kagglehub
+- ✅ **Best practices** for ML/DL project structure and documentation
 - ✅ **Version control** with proper .gitignore configuration
 
 ## 🔍 Code Quality Features
@@ -180,6 +258,7 @@ This repository demonstrates proficiency in:
 - **Professional visualization** with proper labels and colors
 - **Error handling** and data validation
 - **Reproducible results** with fixed random states
+- **Proper data scaling** and preprocessing
 
 ## 🤝 Contributing
 
@@ -197,7 +276,7 @@ Contributions are welcome! Please follow these guidelines:
 ### Contribution Ideas
 
 - Add more ML algorithms (SVM, Random Forest, etc.)
-- Implement deep learning models
+- Implement CNN models for image classification
 - Add more datasets and analysis
 - Improve visualizations
 - Add unit tests
@@ -206,7 +285,7 @@ Contributions are welcome! Please follow these guidelines:
 
 ### Planned Implementations
 
-- 🧠 **Deep Learning Models**: Neural networks with TensorFlow/PyTorch
+- 🧠 **Convolutional Neural Networks**: CNN implementations for image tasks
 - 📊 **Advanced Datasets**: Multi-class classification, time series data
 - 🔍 **Feature Engineering**: Advanced preprocessing techniques
 - 🎯 **Model Comparison**: Comprehensive algorithm benchmarking
@@ -227,10 +306,12 @@ Contributions are welcome! Please follow these guidelines:
 After exploring this repository, you'll understand:
 
 - How to implement linear regression from scratch
+- Deep learning fundamentals with TensorFlow/Keras
+- Neural network architecture design
 - Data preprocessing and visualization techniques
 - Model evaluation and performance metrics
 - Working with APIs (Kaggle) for data acquisition
-- Best practices for ML project organization
+- Best practices for ML/DL project organization
 - Version control for data science projects
 
 ## 📞 Contact & Support
@@ -247,18 +328,20 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🎯 Quick Navigation
 
-| Notebook                                                         | Purpose           | Key Concepts                                |
-| ---------------------------------------------------------------- | ----------------- | ------------------------------------------- |
-| [`simple-linear-regession.ipynb`](simple-linear-regession.ipynb) | Linear Regression | Prediction, Visualization, Model Evaluation |
-| [`tensor-demo.ipynb`](tensor-demo.ipynb)                         | NumPy Basics      | Array Operations, Dimensions                |
-| [`working-with-csv.ipynb`](working-with-csv.ipynb)               | Data Handling     | CSV Operations, Pandas                      |
-| [`Dataset-import-export.ipynb`](Dataset-import-export.ipynb)     | Data Acquisition  | Kaggle API, Automation                      |
+| Notebook                                                         | Purpose           | Key Concepts                                      |
+| ---------------------------------------------------------------- | ----------------- | ------------------------------------------------- |
+| [`simple-linear-regession.ipynb`](simple-linear-regession.ipynb) | Linear Regression | Prediction, Visualization, Model Evaluation       |
+| [`mnist_classification.ipynb`](mnist_classification.ipynb)       | Deep Learning     | Neural Networks, Image Classification, TensorFlow |
+| [`admission_perdication.ipynb`](admission_perdication.ipynb)     | Neural Regression | Deep Learning Regression, Feature Scaling         |
+| [`tensor-demo.ipynb`](tensor-demo.ipynb)                         | NumPy Basics      | Array Operations, Dimensions                      |
+| [`working-with-csv.ipynb`](working-with-csv.ipynb)               | Data Handling     | CSV Operations, Pandas                            |
+| [`Dataset-import-export.ipynb`](Dataset-import-export.ipynb)     | Data Acquisition  | Kaggle API, Automation                            |
 
 ---
 
 ⭐ **Star this repository if you find it helpful for your ML/DL journey!** ⭐
 
-_Happy Learning! 🚀 Let's build the future with Machine Learning!_
+_Happy Learning! 🚀 Let's build the future with Machine Learning and Deep Learning!_
 
 ---
 
